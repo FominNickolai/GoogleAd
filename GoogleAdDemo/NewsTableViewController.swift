@@ -83,6 +83,14 @@ class NewsTableViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return adBannerView
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return adBannerView.frame.height
+    }
 
 }
 
@@ -97,8 +105,8 @@ extension NewsTableViewController: GADBannerViewDelegate {
         
         UIView.animate(withDuration: 0.5) {
             self.tableView.tableHeaderView?.frame = bannerView.frame
-            bannerView.transform = CGAffineTransform.identity
-            self.tableView.tableHeaderView = bannerView
+            //bannerView.transform = CGAffineTransform.identity
+            //self.tableView.tableHeaderView = bannerView
         }
     }
     
