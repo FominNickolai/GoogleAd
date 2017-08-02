@@ -19,13 +19,17 @@ class NewsTableViewController: UITableViewController {
         adBannerView.rootViewController = self
         return adBannerView
     }()
+    
+    //Full Screen Ad
+    var interestitial: GADInterstitial?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let request = GADRequest()
         request.testDevices = ["06350ca62503671d46e2f7a6a8c68e02"]
         adBannerView.load(request)
-
+        
+        interestitial = createAndLoadInterestitial()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -91,6 +95,19 @@ class NewsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return adBannerView.frame.height
     }
+    
+    //MARK: - Helpers
+    func createAndLoadInterestitial() -> GADInterstitial? {
+        interestitial = GADInterstitial(adUnitID: "ca-app-pub-4078481930491067/1693727763")
+        guard let interestitial = interestitial else { return nil }
+        
+        let request = GADRequest()
+        //Remove the following line before you upload the app
+        request.testDevices = ["06350ca62503671d46e2f7a6a8c68e02"]
+        interestitial.load(request)
+        interestitial.delegate = self
+        return interestitial
+    }
 
 }
 
@@ -116,7 +133,18 @@ extension NewsTableViewController: GADBannerViewDelegate {
     }
 }
 
-
+extension NewsTableViewController: GADInterstitialDelegate {
+    
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+        print("Interestitial loaded successfully")
+        ad.present(fromRootViewController: self)
+    }
+    
+    func interstitialDidFail(toPresentScreen ad: GADInterstitial) {
+        print("Fail to receive interestitial")
+    }
+    
+}
 
 
 
