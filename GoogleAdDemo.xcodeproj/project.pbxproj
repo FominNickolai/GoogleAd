@@ -126,6 +126,7 @@
 				TargetAttributes = {
 					F4CB3D671DC34EF4008A85BF = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = X3563PB3YJ;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -340,6 +341,7 @@
 			baseConfigurationReference = 587B0B90567DEFBBD8910430 /* Pods-GoogleAdDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = X3563PB3YJ;
 				INFOPLIST_FILE = GoogleAdDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appcoda.GoogleAdDemo;
@@ -353,6 +355,7 @@
 			baseConfigurationReference = 0FBB4A4CC531EF2FDC35634E /* Pods-GoogleAdDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = X3563PB3YJ;
 				INFOPLIST_FILE = GoogleAdDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appcoda.GoogleAdDemo;
